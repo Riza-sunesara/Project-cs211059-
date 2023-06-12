@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+
+
+<style>
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: 0.75em;
+padding-right: 0.75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+
+.containersign{
+        width: 1000px;
+        height: 550px;
+        border-radius: 10px;
+        margin-left: 190px;
+}
+  </style>
+
+<script>
+    (() => {
+  'use strict';
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation');
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, true);
+  });
+})();
+
+var a=document.getElementById('validationServer01');
+var b=document.getElementById('validationServer02');
+
+function ValidateEmail(input) {
+  var validRegex=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  if (!(input.value.match(validRegex))) {
+    alert("Invalid email address!");
+    document.form1.text1.focus();
+    return false;
+  } 
+}
+</script>
+<body>
+<section class="h-100 bg-dark">
+    <div class="containersign py-5 h-100 " >
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="login.jpeg" alt="Sample Photo" class="img-fluid" style="border-bottom-left-radius: 0.25rem;
+                             border-top-left-radius:0.25rem;">
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black"><br>
+                                <h3 class="mb-5 text-uppercase" style="text-align: center;">SIGN UP</h3>
+                                <form class="row g-3" name="form1" action="functions/authcode.php" method="post">
+                                    <div class="col-md-6">
+                                      <label for="validationServer01" class="form-label">First name</label>
+                                      <input type="text" class="form-control" name="fname" id="validationServer01" placeholder="First Name" required>
+                                      
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label for="validationServer02" class="form-label">Last name</label>
+                                      <input type="text" class="form-control" name="lname" id="validationServer02" placeholder="Last Name" required>
+                                      
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="validationServer03" class="form-label">Date Of Birth</label>
+                                        <input type="date" class="form-control" name="DOB" oninput="isValid(this,3)" id="validationServer03" value="" required>
+                                        
+                                      </div>
+
+                                    <div class="col-md-6">
+                                      <label for="validationServer07" class="form-label">Phone Number</label>
+                                      <input type="number" class="form-control" name="phone" oninput="isValid(this,6)" id="validationServer07" required>
+                                      
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label for="validationServerUsername" class="form-label">Username</label>
+                                        <div class="input-group">
+                                          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                                          <input type="text" name="username" class="form-control " id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
+                                          
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <label class="form-label" for="loginPassword">Password</label>
+                                        <input type="password" id="loginPassword" class="form-control" name="password" required/>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <label class="form-label" for="loginPassword">Confirm Password</label>
+                                        <input type="password" id="loginPassword" class="form-control" name="cpassword" required/>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <label for="validationServer05" class="form-label">Province</label>
+                                        <select class="form-select" name="province" id="validationServer05" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="1">Sindh</option>
+                                        <option value="2">Punjab</option>
+                                        <option value="3">Balochistan</option>
+                                        <option value="4">KPK</option>
+                                        <option value="5">Gilgit-Baltistan</option>
+                                        </select>
+                                        
+                                      </div>
+                                    <div class="col-md-6">
+                                      <label for="validationServer06" class="form-label">City</label>
+                                      <select class="form-select " name="city" id="validationServer06" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="1">Karachi</option>
+                                        <option value="2">Hyderabad</option>
+                                        <option value="3">Multan</option>
+                                        <option value="4">Peshawar</option>
+                                        <option value="5">Lahore</option>
+                                        <option value="6">Islamabad</option>
+                                        <option value="7">Chitral</option>
+                                        <option value="8">Other...</option>
+                                      </select>
+                                      
+                                    </div>
+
+                                      <div class="col-md-12">
+                                        <label for="validationServer04" class="form-label">Address</label>
+                                        <input type="text" class="form-control " name="Address" oninput="isValid(this,4)" id="validationServer04" value="" required>
+                                      </div>
+
+                                    
+                                    <div class="col-md-6">
+                                        <label for="validationServer08" class="form-label">Payment Type</label>
+                                        <select class="form-select" name="pay" id="validationServer08" required>
+                                          <option selected disabled value="">Choose...</option>
+                                          <option value="1">Card</option>
+                                          <option value="2">Cash</option>
+                                        </select>
+                                        
+                                      </div>
+                                      
+                                    <div class="col-12">
+                                      <div class="form-check">
+                                        <input class="form-check-input " type="checkbox" value="" id="invalidCheck3" required>
+                                        <label class="form-check-label" for="invalidCheck3">
+                                          Agree to terms and conditions
+                                        </label>
+                                        
+                                      </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <button class="btn" onclick="ValidateEmail(document.form1.text1)" name="register_btn"
+                                      style="background-color: #87B96E; margin-left: 140px; text-decoration: none;" type="submit"><a href="login&signup.html" style="color:#fff;text-decoration: none;">Sign Up</a></button>
+                                    </div>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
